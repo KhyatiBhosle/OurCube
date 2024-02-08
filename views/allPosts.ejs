@@ -1,0 +1,113 @@
+<%- include('partials/header.ejs')%>
+<div id="allPosts">
+    <form action="/allposts" method="post">
+
+        <label>
+            <h4>
+                What are you looking for?            
+            </h4>
+           </label>
+           <br>
+        <select name="request" id="type"required>
+            <option id ="accomodation" value ="accomodation">Accommodations</option>
+            <option id ="job" value ="job">Jobs</option>
+            <option id ="ride" value ="ride">Rides</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit!" id="submit">
+        <br>
+        <hr>
+        <br>
+        <div class="filter">
+            <label>
+                <h4>
+                    Add Filters to ease up your search
+                </h4>
+            </label>
+            
+            <div class="row">
+                <div class="col">
+                    <label>Select Request Type</label>
+                    <select name="typeOfRequest">
+                        <option value="">None</option>
+                        <option value ="Offering">Offering</option>
+                        <option value ="Looking">Looking</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>Select Date of Posting</label>
+                    <input type="date" name="dateOfPosting" placeholder="Date of Posting">
+                </div>
+                <div class="col">
+                    <label>Select Location</label>
+                    <select id="area" name="area">
+                        <option value="">None</option>
+                        <option>Barrhaven</option>
+                        <option>Baseline</option>
+                        <option>Downtown Ottawa</option>
+                        <option>Kanata</option>
+                        <option>Nepean</option>
+                        <option>Orleans</option>
+                        <option>Stittsville</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <input type="submit" value="Submit!" id="submit">
+    </form>
+    <hr>
+    <br>
+    <br>
+    <div class="posts row">
+        <%if(locals.request == ""){%>
+        <h1>Please choose what your are looking for!</h1>
+        <%}else{%>
+        <% if(locals.posts.length){%>
+            <% locals.posts.forEach(post => {%>
+                <div class="post col-3">
+                    <h3 style="display:none"><%=post.id%></h3>
+                    <h3 id="what" style="display:none"><%=post.what%></h3>
+                    <h1><%=post.type%></h1>
+                    <p><%=post.name%></p>
+                    <p><%=post.email%></p>
+                    <% if(post.phone !== ''){%>
+                        <p><%=post.phone%></p>
+                    <%}%>
+                    <p><%=post.location%></p>
+                    <% if(post.rent !== ''){%>
+                        <p><%=post.rent%></p>
+                    <%}%>
+                    <% if(post.salary !== ''){%>
+                        <p><%=post.salary%></p>
+                    <%}%>
+                    <% if(post.date !== ''){%>
+                        <p><%=post.date%></p>
+                    <%}%>
+                    <% if(post.time){%>
+                        <p><%=post.time%></p>
+                    <%}%>
+                    <% if(post.from){%>
+                        <p><%=post.from%></p>
+                    <%}%>
+                    <% if(post.to){%>
+                        <p><%=post.to%></p>
+                    <%}%>
+                    <% if(post.info !== ''){%>
+                        <p><%=post.info%></p>
+                    <%}%>
+                    <br>
+                    <p>
+                        <b>
+                        Date Posted: <%=post.datePosted%>
+                        </b>
+                    </p>
+                </div>
+            <%});%>
+        <%}else{%>
+            <h1>No posts to show!</h1>
+        <%}}%>
+    </div>
+</div>
+   
+<%- include('partials/footer.ejs')%>
+<script src="script/allposts.js"></script>

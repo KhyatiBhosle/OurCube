@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs')%>
+<div class="row" id="ride">
+    <div class="col">
+        <div class="icon">
+            <i class="fa-solid fa-car-side"></i>
+        </div>
+        <h1>Need someone to join you while you travel or need a ride?</h1>
+        <p>
+            Fill this form to post your ad
+        </p>
+    </div>
+    <div class="col">
+        <form action="/ride" method="post">
+            <label>Are you Looking or Offering?</label>
+            <select id="type" name="type">
+                <option value="Looking">Looking</option>
+                <option value="Offering">Offering</option>
+            </select><br>
+            <input type="text" name="name" id="name" placeholder="Your Full Name*" required><br>
+            <input type="email" name="email" id="email" placeholder="Your Email*" required><br>
+            <input type="text" name="phone" id="phone" placeholder="Your Phone Number"><br>
+            <input type="date" name="date" id="date" placeholder="Date of Journey" required>
+            <input type="text" name="startTime" id="startTime" placeholder="Start Time">
+            <input type="text" name="startLocation" id="startLocation" placeholder="From" required>
+            <input type="text" name="destination" id="destination" placeholder="To" required>
+            <input type="text" name="price" id="price" placeholder="Price" required>
+            <textarea name="info" id="message" placeholder="Additional information" ></textarea><br>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+</div>
+<%- include('partials/footer.ejs')%>

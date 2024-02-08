@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs')%>
+<div class="row" id="jobs">
+    <div class="col">
+        <div class="icon">
+            <i class="fa-solid fa-laptop"></i>        </div>
+        <h1>Looking to hire someone or need a Job?</h1>
+        <p>
+            Fill this form to post your ad
+        </p>
+    </div>
+    <div class="col">
+        <form action="/job" method="post">
+            <select id="type" name="type">
+                <label>Are you Looking or Offering?</label>
+                <option value="Looking">Looking</option>
+                <option value="Offering">Offering</option>
+            </select><br>
+            <input type="text" name="name" id="name" placeholder="Your Full Name*" required><br>
+            <input type="email" name="email" id="email" placeholder="Your Email*" required><br>
+            <input type="text" name="phone" id="phone" placeholder="Your Phone Number"><br>
+            <select id="area" name="area">
+                <option>Location</option>
+                <option>Barrhaven</option>
+                <option>Baseline</option>
+                <option>Downtown Ottawa</option>
+                <option>Kanata</option>
+                <option>Nepean</option>
+                <option>Orleans</option>
+                <option>Stittsville</option>
+            </select><br>
+            <input type="text" name="salary" id="salary" placeholder="Salary" required><br>
+            <textarea name="info" id="message" placeholder="Job Description" required></textarea><br>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+</div>
+<%- include('partials/footer.ejs')%>

@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs')%>
+<div class="row" id="accomodation">
+    <div class="col">
+        <div class="icon">
+            <i class="fa-solid fa-house"></i>
+        </div>
+        <h1>Looking or have for a cozy place?</h1>
+        <p>
+            Fill this form to post your ad
+        </p>
+    </div>
+    <div class="col">
+        <form action="/accomodation" method="post">
+            <label>Are you Looking or Offering?</label>
+            <select id="type" name="type" required>
+                <option value="Looking">Looking</option>
+                <option value="Offering">Offering</option>
+            </select><br>
+            <input type="text" name="name" id="name" placeholder="Your Full Name*" required><br>
+            <input type="email" name="email" id="email" placeholder="Your Email*" required><br>
+            <input type="text" name="phone" id="phone" placeholder="Your Phone Number"><br>
+            <select id="area" name="area">
+                <option>Barrhaven</option>
+                <option>Baseline</option>
+                <option>Downtown Ottawa</option>
+                <option>Kanata</option>
+                <option>Nepean</option>
+                <option>Orleans</option>
+                <option>Stittsville</option>
+            </select><br>
+            <input type="text" name="rent" id="rent" placeholder="Rent" required><br>
+            <textarea name="info" id="message" placeholder="Additional Information"></textarea><br>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+</div>
+<%- include('partials/footer.ejs')%>
